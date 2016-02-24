@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="beanAlumnos" class="colegiocore.Alumnos">
+		<property name="nombre" value="Luis" />
+	</bean>
+	
+	<bean id="beanAlumnos2" class="colegiocore.Alumnos">
+		<property name="nombre" value="Jesus" />
+	</bean>
+	
+	<bean id="beanColegioList" class="colegiocore.Colegio">
+        <property name="alumnos">
+        	<list>
+        		<ref bean="beanAlumnos"/>
+        		<ref bean="beanAlumnos2"/>
+        	</list>
+        </property>
+	</bean>
+	
+	<bean id="beanColegioSet" class="colegiocore.Colegio">
+        <property name="alumnos">
+        	<set>
+        		<ref bean="beanAlumnos"/>
+        		<ref bean="beanAlumnos2"/>
+        	</set>
+        </property>
+	</bean>
+	
+	<bean id="beanColegioMap" class="colegiocore.Colegio">
+        <property name="alumnos2">
+        	<map>
+        		<entry key="key1" value-ref="beanAlumnos"/>
+        		<entry key="key2" value-ref="beanAlumnos2"/>
+        	</map>
+        </property>
+	</bean>
+	
+	<bean id="beanColegioProps" class="colegiocore.Colegio">
+        <property name="alumnos3">
+        	<props>
+        		<prop key="key1">Luis</prop>
+        		<prop key="key2">Luis2</prop>
+        	</props>
+        </property>
+	</bean>
+	
+</beans>

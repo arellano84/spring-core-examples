@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="iniciar" default-destroy-method="destruir">
+
+	<bean id="beanCliente" class="facturacioncore.Cliente">
+		<property name="nombre" value="Luis" />
+		<property name="nif" value="ABC123..." />
+		<property name="direccion" value="Madrid" />
+	</bean>
+	
+	<bean id="beanFacturaPropiedades" class="facturacioncore.Factura">
+        <property name="cliente" ref="beanCliente"/>
+        <property name="importe" value="9.99" />
+        <property name="fecha" >
+            <bean class="java.util.Date" />
+        </property>
+	</bean>
+	
+	<bean id="beanFacturaTipo" class="facturacioncore.Factura">
+        <constructor-arg type="Cliente" ref="beanCliente"/>
+        <constructor-arg type="double" value="100" /> 
+        <constructor-arg type="java.util.Date">
+        	<bean class="java.util.Date" />
+        </constructor-arg>
+	</bean>
+	
+	<bean id="beanFacturaPosicion" class="facturacioncore.Factura">
+        <constructor-arg index="0" ref="beanCliente"/>
+        <constructor-arg index="1" value="200" /> 
+        <constructor-arg index="2">
+        	<bean class="java.util.Date" />
+        </constructor-arg>
+	</bean>
+	
+	<bean id="beanFacturaNombre" class="facturacioncore.Factura">
+        <constructor-arg name="cliente" ref="beanCliente"/>
+        <constructor-arg name="importe" value="300" /> 
+        <constructor-arg name="fecha">
+        	<bean class="java.util.Date" />
+        </constructor-arg>   
+	</bean>
+	
+	
+</beans>
