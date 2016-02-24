@@ -13,11 +13,11 @@ EJERCICIO 2
 Crear la clase Cliente con las propiedades: nombre, nif y dirección todas ellas de tipo String.
 Crear la clase Factura con las propiedades: cliente de tipo Cliente, importe de tipo double y fecha de tipo Date.
 Declarar varios beans de tipo Factura inyectando las propiedades de la siguiente forma:
-	Haciendo referencia a sus propiedades
-	A través del constructor:
-		Por tipo de datos
-		Por posición
-		Por nombre
+	- Haciendo referencia a sus propiedades
+	- A través del constructor:
+		- Por tipo de datos
+		- Por posición
+		- Por nombre
 La propiedad fecha se debe inyectar con un bean interno.
 
 
